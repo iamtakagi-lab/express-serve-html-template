@@ -1,9 +1,10 @@
-const path = require("path")
-const nodeExternals = require("webpack-node-externals");
-const isProduction = process.env.NODE_ENV === "production"
+import * as path from 'path';
+import * as webpack from 'webpack';
+import nodeExternals from 'webpack-node-externals';
 
-/** @type {import("webpack").Configuration} */
-const config = {
+const isProduction = process.env.NODE_ENV === "production";
+
+const config: webpack.Configuration = {
     mode: isProduction ? "production" : "development",
     entry: {
         main: "./src/index.ts",
@@ -25,8 +26,7 @@ const config = {
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],
-    },
-    devtool: "source-map"
+    }
 }
 
 module.exports = config
